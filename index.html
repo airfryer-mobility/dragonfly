@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+    <head>
+        <title>dfly</title>
+        <link rel="icon" type="image/png" href="dfly.png" />
+        <style>
+            @font-face {
+                font-family: "LXGW WenKai Mono TC";
+                src: url("Font.ttf");
+            }
+            :root {
+                color: white;
+                font-family: "LXGW WenKai Mono TC", monospace;
+            }
+            a {
+                color: red;
+                font-family: "LXGW WenKai Mono TC", monospace;
+                padding-left: 12px;
+                padding-right: 12px;
+            }
+
+            .alert {
+                background-color: darkred;
+            }
+
+            center {
+                max-width: 400px;
+            }
+
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                margin: 0;
+            }
+
+            .device-wrapper {
+                user-select: none;
+                position: relative;
+                display: inline-block;
+                max-width: 400px;
+            }
+
+            .device-frame-img {
+                display: block;
+                width: 100%;
+                height: auto;
+                position: relative;
+                z-index: 2;
+                pointer-events: none;
+            }
+
+            .device-screen-content {
+                position: absolute;
+                border: none;
+                z-index: 1;
+
+                top: 7.7%;
+                left: 6.5%;
+                width: 87%;
+                height: 62%;
+            }
+        </style>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+    <body bgcolor="#0">
+        <br />
+        <center>
+            <img width="100px" src="dfly.png" /><br />dragonfly<br /><br />
+            <a href="index.html">home</a><a>downloads</a><a>source code</a
+            ><br />
+            <br />
+
+            <div class="device-wrapper">
+                <!-- Your transparent PNG device frame goes on top -->
+                <img
+                    src="monitor.png"
+                    alt="Device Frame"
+                    class="device-frame-img"
+                />
+
+                <!-- The iframe sits directly underneath it -->
+                <iframe
+                    src="splash.html"
+                    class="device-screen-content"
+                ></iframe>
+            </div>
+            <br />
+            <i>"it just works"</i>
+
+            <p>
+                dragonfly is a linux-based operating system designed to "just
+                work", while also being easy to program, modify, and adapt to
+                any form factor.
+            </p>
+            <p class="alert">
+                mobile builds are currently undergoing testing... they will be
+                ready soon
+            </p>
+        </center>
+        <script>
+            if (navigator.userAgent.includes("dragonfly")) {
+                document.body.style =
+                    "background: linear-gradient(180deg,rgba(0, 0, 0, 1) 66%, rgba(59, 0, 0, 1) 100%);";
+            }
+        </script>
+    </body>
+</html>
