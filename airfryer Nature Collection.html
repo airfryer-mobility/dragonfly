@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>collection</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body,
+            html {
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                background-color: #000;
+            }
+
+            .carousel-container {
+                position: relative;
+                width: 100%;
+                height: 100%;
+            }
+
+            .slide {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                opacity: 0;
+                transition: opacity 1.5s ease-in-out;
+                z-index: 1;
+            }
+
+            .slide.active {
+                opacity: 1;
+                z-index: 2;
+            }
+
+            img {
+                filter: grayscale(1);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="carousel-container">
+            <img
+                id="slide1"
+                class="slide active"
+                src=""
+                alt="Carousel Slide 1"
+            />
+            <img id="slide2" class="slide" src="" alt="Carousel Slide 2" />
+        </div>
+
+        <script>
+            const images = [
+                "caurosel/1.jpg",
+                "caurosel/2.jpg",
+                "caurosel/3.jpg",
+                "caurosel/4.jpg",
+                "caurosel/5.jpg",
+                "caurosel/6.jpg",
+                "caurosel/7.jpg",
+                "caurosel/8.jpg",
+                "caurosel/9.jpg",
+                "caurosel/10.jpg",
+                "caurosel/11.jpg",
+                "caurosel/12.jpg",
+                "caurosel/14.jpg",
+                "caurosel/15.jpg",
+                "caurosel/16.jpg",
+                "caurosel/17.jpg",
+            ];
+
+            let currentIndex = 0;
+
+            const slide1 = document.getElementById("slide1");
+            const slide2 = document.getElementById("slide2");
+
+            // Track which element is currently visible
+            let currentSlideEl = slide1;
+            let nextSlideEl = slide2;
+
+            // Initialize the very first image
+            currentSlideEl.src = images[currentIndex];
+
+            function changeImage() {
+                currentIndex = (currentIndex + 1) % images.length;
+
+                nextSlideEl.src = images[currentIndex];
+
+                nextSlideEl.classList.add("active");
+                currentSlideEl.classList.remove("active");
+
+                const temp = currentSlideEl;
+                currentSlideEl = nextSlideEl;
+                nextSlideEl = temp;
+            }
+
+            setInterval(changeImage, 2000);
+        </script>
+    </body>
+</html>

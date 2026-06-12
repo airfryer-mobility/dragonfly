@@ -20,7 +20,9 @@
             }
 
             .alert {
-                background-color: darkred;
+                border-width: 2px;
+                border-style: dashed;
+                border-color: darkred;
             }
 
             center {
@@ -56,10 +58,10 @@
                 border: none;
                 z-index: 1;
 
-                top: 7.7%;
+                top: 8%;
                 left: 6.5%;
                 width: 87%;
-                height: 62%;
+                height: 64%;
             }
         </style>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -68,9 +70,10 @@
         <br />
         <center>
             <img width="100px" src="dfly.png" /><br />dragonfly<br /><br />
-            <a href="index.html">home</a
-            ><!-- <a>downloads</a><a>source code</a
-            >--><br />
+            <a href="index.html">home</a><a href="download.html">downloads</a
+            ><a href="https://github.com/orgs/airfryer-mobility/repositories"
+                >source code</a
+            ><br />
             <br />
 
             <div class="device-wrapper">
@@ -83,7 +86,8 @@
 
                 <!-- The iframe sits directly underneath it -->
                 <iframe
-                    src="splash.html"
+                    id="frame"
+                    src="airfryer Nature Collection.html"
                     class="device-screen-content"
                 ></iframe>
             </div>
